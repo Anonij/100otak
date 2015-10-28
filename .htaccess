@@ -1,0 +1,44 @@
+<IfModule mod_rewrite.c>
+Options +FollowSymLinks
+RewriteEngine on
+RewriteRule ^article/(.*)/ index.php?type=article&permalink=$1 [L]
+RewriteRule ^actu/(.*)/ index.php?type=article&category=$1 [L]
+
+RewriteRule ^forum/(.*)/(.*)/(.*) index.php?type=forum&category=$1&topic=$2&page=$3 [L]
+RewriteRule ^forum/(.*)/(.*)/ index.php?type=forum&category=$1&topic=$2 [L]
+RewriteRule ^forum/(.*)/ index.php?type=forum&category=$1 [L]
+RewriteRule ^forum/ index.php?type=forum [L]
+
+RewriteRule ^forum_new lo.php?type=forum_new [L]
+RewriteRule ^forum_edit/(.*) lo.php?type=forum_edit&id=$1 [L]
+RewriteRule ^forum_delete/(.*) lo.php?type=forum_delete&id=$1 [L]
+
+RewriteRule ^category_new/(.*) lo.php?type=category_new&id=$1 [L]
+RewriteRule ^category_edit/(.*) lo.php?type=category_edit&id=$1 [L]
+RewriteRule ^category_delete/(.*) lo.php?type=category_delete&id=$1 [L]
+
+RewriteRule ^category_s_new/(.*) lo.php?type=category_s_new&id=$1 [L]
+RewriteRule ^category_s_edit/(.*) lo.php?type=category_s_edit&id=$1 [L]
+RewriteRule ^category_s_delete/(.*) lo.php?type=category_s_delete&id=$1 [L]
+
+RewriteRule ^topic_new/(.*) index.php?type=topic_new&id=$1 [L]
+RewriteRule ^topic_edit/(.*) index.php?type=topic_edit&id=$1 [L]
+RewriteRule ^topic_delete/(.*) index.php?type=topic_delete&id=$1 [L]
+
+RewriteRule ^post_new/(.*) index.php?type=post_new&id=$1 [L]
+RewriteRule ^post_delete/(.*) index.php?type=post_delete&id=$1 [L]
+
+RewriteRule ^membre/(.*)/ index.php?type=membre&pseudo=$1 [L]
+RewriteRule ^event/(.*)/ index.php?type=event&permalink=$1 [L]
+RewriteRule ^new index.php?type=new_member [L]
+
+RewriteRule ^avatar index.php?type=avatar [L]
+RewriteRule ^gen_avatar/(.*)/(.*)/(.*)/ .lib/avatar_gen.php?1=$1&2=$2&3=$3 [L]
+
+RewriteRule ^contact index.php?type=contact [L]
+RewriteRule ^send/contact .lib/contact.php [L]
+RewriteRule ^profile index.php?type=profile [L]
+RewriteRule ^lang/(.*)/ .lang/change.php?lang=$1 [L]
+RewriteRule ^worldwide index.php?type=worldwide [L]
+RewriteRule ^logout logout.php [L]
+</IfModule>

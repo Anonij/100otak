@@ -1,1 +1,0 @@
-<?= "Ce qui est caché doit le rester"; ?>
